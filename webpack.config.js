@@ -11,13 +11,13 @@ module.exports = {
     open: true,
     hot: !isProduction
   },
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: path.resolve(__dirname, 'src/index.tsx'),
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-    extensions: ['.js', 'jsx', 'ts', 'tsx', 'json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   module: {
     rules: [
