@@ -24,7 +24,7 @@ const MyHometask: MyHometaskInterface = {
 
 interface MyArray<T> {
   [n: number]: T
-  reduce<U>(fn: (acc: T, curr: T, i?: number, arr?: T[]) => U, initial?: number) : U
+  reduce<U>(fn: (acc: T, curr: T, i?: number, arr?: T[]) => U, initial?: U) : U
 }
 
 const arr: MyArray<number> = [1, 2, 767]
