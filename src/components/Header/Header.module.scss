@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+
+  .logo {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+
+    &__item:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 94px;
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .navigation {
+      &__item:not(:last-child) {
+        margin-right: 70px;
+      }
+    }
+  }
+}
