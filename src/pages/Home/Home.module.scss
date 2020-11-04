@@ -1,0 +1,16 @@
+@import '@/styles/variables';
+
+.root {
+  min-height: calc(100vh - #{$header_height_mobile});
+  background: linear-gradient(180deg, $color_third 0%, $color_primary 100%);
+  padding-top: $section_padding_mobile;
+  padding-bottom: $section_padding_mobile;
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    min-height: calc(100vh - #{$header_height_desktop});
+    padding-top: $section_padding_desktop;
+    padding-bottom: $section_padding_desktop;
+  }
+}

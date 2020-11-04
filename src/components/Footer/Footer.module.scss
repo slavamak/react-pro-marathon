@@ -1,8 +1,17 @@
+@import '@/styles/variables';
+
+.root {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: $header_height_mobile;
 
   &__nav {
     li:not(:last-child) {
@@ -11,6 +20,6 @@
   }
 
   @media screen and (min-width: 768px) {
-    height: 94px;
+    height: $header_height_desktop;
   }
 }

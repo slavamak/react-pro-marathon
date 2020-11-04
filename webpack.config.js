@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 const path = require('path');
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -17,8 +16,16 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/,
+    poll: 1000
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    },
   },
   module: {
     rules: [
@@ -50,12 +57,9 @@ module.exports = {
         ],
       },
       {
-        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-        loader: 'file-loader',
-        options: {
-          outputPath: 'assets',
-        },
-      },
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
+      }
     ],
   },
   plugins: [

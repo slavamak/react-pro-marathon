@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Custom
-*.d.ts
+*.module.scss.d.ts
