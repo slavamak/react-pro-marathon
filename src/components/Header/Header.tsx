@@ -6,6 +6,25 @@ import styles from './Header.module.scss';
 import Logo from '../../assets/Logo.svg';
 
 export const Header: React.FC = () => {
+  const navItems = [
+    {
+      title: 'Home',
+      url: '/'
+    },
+    {
+      title: 'Pokédex',
+      url: '/pokedex'
+    },
+    {
+      title: 'Legendaries',
+      url: '/legendaries'
+    },
+    {
+      title: 'Documentation',
+      url: '/docs'
+    }
+  ];
+
   return (
     <header>
       <Container>
@@ -14,18 +33,13 @@ export const Header: React.FC = () => {
             <img src={Logo} alt="Pokemon Desk" />
           </a>
           <nav className={styles.navigation}>
-            <a className={styles.navigation__item} href="/">
-              Home
-            </a>
-            <a className={styles.navigation__item} href="/pokedex">
-              Pokédex
-            </a>
-            <a className={styles.navigation__item} href="/legendaries">
-              Legendaries
-            </a>
-            <a className={styles.navigation__item} href="/docs">
-              Documentation
-            </a>
+            {
+              navItems.map(item => (
+                <a className={styles.navigation__item} href={item.url} key={Date.now()}>
+                  {item.title}
+                </a>
+              ))
+            }
           </nav>
         </div>
       </Container>
