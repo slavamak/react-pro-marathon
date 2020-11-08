@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container } from '@/components/Container';
 import { INav } from '@/interfaces';
@@ -10,23 +11,23 @@ const HeaderNav: INav[] = [
   {
     title: 'Home',
     url: '/',
-    id: Date.now()
+    id: 1,
   },
   {
     title: 'Pokédex',
     url: '/pokedex',
-    id: Date.now()
+    id: 2,
   },
   {
     title: 'Legendaries',
     url: '/legendaries',
-    id: Date.now()
+    id: 3,
   },
   {
     title: 'Documentation',
     url: '/docs',
-    id: Date.now()
-  }
+    id: 4,
+  },
 ];
 
 export const Header: React.FC = () => {
@@ -34,17 +35,15 @@ export const Header: React.FC = () => {
     <header className={styles.root}>
       <Container>
         <div className={styles.header}>
-          <a className={styles.logo} href="/" title="PokemonDesk">
+          <Link className={styles.logo} title="PokemonDesk" to="/">
             <Logo />
-          </a>
+          </Link>
           <nav className={styles.navigation}>
-            {
-              HeaderNav.map(({ title, url, id }) => (
-                <a className={styles.navigation__item} href={url} key={id}>
-                  {title}
-                </a>
-              ))
-            }
+            {HeaderNav.map(({ title, url, id }) => (
+              <Link className={styles.navigation__item} to={url} key={id}>
+                {title}
+              </Link>
+            ))}
           </nav>
         </div>
       </Container>

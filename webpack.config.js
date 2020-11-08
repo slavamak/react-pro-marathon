@@ -10,6 +10,7 @@ module.exports = {
     port: 3000,
     open: true,
     hot: !isProduction,
+    historyApiFallback: true,
   },
   entry: path.resolve(__dirname, 'src/index.ts'),
   output: {
@@ -19,12 +20,12 @@ module.exports = {
   watch: true,
   watchOptions: {
     ignored: /node_modules/,
-    poll: 1000
+    poll: 1000,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   module: {
@@ -59,7 +60,23 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ['@svgr/webpack', 'url-loader'],
-      }
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: ['url-loader'],
+      },
     ],
   },
   plugins: [

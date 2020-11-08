@@ -1,0 +1,8 @@
+@import '@/styles/variables';
+
+.root {
+  min-height: calc(100vh - #{$header_height_mobile});
+  background-color: $color_danger;
+  padding-top: $section_padding_mobile;
+  padding-bottom: $section_padding_mobile;
+}

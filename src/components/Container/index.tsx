@@ -1,12 +1,13 @@
 import React from 'react';
 
+import cn from 'classnames';
+
 import styles from './Container.module.scss';
 
-interface IProps {
-  children: React.ReactNode
-};
+interface ContainerProps {
+  className?: string;
+}
 
-export const Container: React.FC<IProps> = ({ children }: IProps) => {
-  return <div className={styles.container}>{children}</div>;
+export const Container: React.FC<ContainerProps> = ({ children, className = null }) => {
+  return <div className={cn(styles.container, className)}>{children}</div>;
 };
-

@@ -1,0 +1,9 @@
+@import '@/styles/variables';
+
+.root {
+  font-style: normal;
+
+  &--bold {
+    font-weight: $font_weight_bold;
+  }
+}
