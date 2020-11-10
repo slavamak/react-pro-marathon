@@ -1,24 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useRoutes, useTitle } from 'hookrouter';
+import { routes } from '@/routes';
 
-import { HomePage } from '@/pages/Home';
-import { PokedexPage } from '@/pages/Pokedex';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { NotFoundPage } from './pages/NotFound';
+import { NotFoundPage } from '@/pages/NotFound';
 
 export const App = () => {
-  return (
-    <Router>
-      <Header />
-      <main>
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/pokedex" component={PokedexPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </main>
-      <Footer />
-    </Router>
-  );
+  const routeResult = useRoutes(routes);
+  const pageTitle = routeResult ? routeResult.props.title || document.title : document.title;
+  useTitle(pageTitle);
+
+  if (routeResult) {
+    return (
+      <>
+        <Header />
+        <main>{routeResult}</main>
+        <Footer />
+      </>
+    );
+  }
+
+  return <NotFoundPage />;
 };

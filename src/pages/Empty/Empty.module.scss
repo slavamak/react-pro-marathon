@@ -2,12 +2,6 @@
 
 .root {
   min-height: calc(100vh - #{$header_height_mobile});
-  background: linear-gradient(180deg, #ffffff 30.32%, $color_white 100%);
   padding-top: $section_padding_mobile;
   padding-bottom: $section_padding_mobile;
-}
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
 }

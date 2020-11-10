@@ -3,16 +3,21 @@ import React from 'react';
 import { Button } from '@/components/Button';
 import { Heading } from '@/components/Heading';
 import { Container } from '@/components/Container';
+import { IPagesProps } from '@/interfaces';
 
 import styles from './NotFound.module.scss';
+import Image from './assets/404.png';
 
-export const NotFoundPage = () => {
+export const NotFoundPage: React.FC<IPagesProps> = () => {
   return (
     <section className={styles.root}>
-      <Container>
-        <Heading>404</Heading>
-        <Heading size={2}>The rocket team has won this time.</Heading>
-        <Button color="yellow" isAnchor href="/">
+      <Container className={styles.container}>
+        <Heading className={styles.title}>404</Heading>
+        <img className={styles.image} src={Image} alt="404" />
+        <Heading className={styles['sub-title']} size={2}>
+          <span>The rocket team</span> has won this time.
+        </Heading>
+        <Button className={styles.btn} color="yellow" isAnchor href="/">
           Return
         </Button>
       </Container>

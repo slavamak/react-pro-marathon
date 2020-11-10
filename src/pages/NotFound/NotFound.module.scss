@@ -1,8 +1,57 @@
 @import '@/styles/variables';
 
 .root {
-  min-height: calc(100vh - #{$header_height_mobile});
+  min-height: calc(100vh);
   background-color: $color_danger;
   padding-top: $section_padding_mobile;
   padding-bottom: $section_padding_mobile;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+}
+
+.title {
+  font-size: calc(1rem + 45vw);
+  font-weight: $font_weight_bold;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.image {
+  position: absolute;
+  width: 60%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  margin-top: 40px;
+
+  span {
+    color: $color_white;
+  }
+}
+
+.btn {
+  margin-top: 60px;
+}
+
+@media screen and (min-width: 768px) {
+  .sub-title {
+    font-size: 2.5rem;
+    margin-top: 60px;
+
+    span {
+      color: $color_white;
+    }
+  }
 }

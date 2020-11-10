@@ -1,5 +1,3 @@
-export interface INav {
-  title: string,
-  url: string,
-  id: number
-};
+export interface IPagesProps {
+  title?: string;
+}

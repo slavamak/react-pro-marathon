@@ -4,10 +4,11 @@ import { Container } from '@/components/Container';
 import { Parallax } from '@/components/Parallax';
 import { Heading } from '@/components/Heading';
 import { Button } from '@/components/Button';
+import { IPagesProps } from '@/interfaces';
 
 import styles from './Home.module.scss';
 
-export const HomePage: React.FC = () => {
+export const HomePage: React.FC<IPagesProps> = () => {
   return (
     <section className={styles.root}>
       <Container>

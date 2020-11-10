@@ -1,18 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { A } from 'hookrouter';
 
 import { Container } from '@/components/Container';
-import { INav } from '@/interfaces';
+import { FOOTER_NAV } from '@/routes';
 
 import styles from './Footer.module.scss';
-
-const FooterNav: INav[] = [
-  {
-    title: 'Ours Team',
-    url: '/team',
-    id: 1,
-  },
-];
 
 export const Footer: React.FC = () => {
   return (
@@ -26,9 +18,9 @@ export const Footer: React.FC = () => {
             </span>
           </p>
           <ul className={styles.footer__nav}>
-            {FooterNav.map(({ title, url, id }) => (
-              <li key={id}>
-                <Link to={url}>{title}</Link>
+            {FOOTER_NAV.map(({ title, url }) => (
+              <li key={title}>
+                <A href={url}>{title}</A>
               </li>
             ))}
           </ul>
