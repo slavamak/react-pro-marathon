@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { A } from 'hookrouter';
 
 import cn from 'classnames';
 
@@ -30,9 +30,9 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (isAnchor) {
     return (
-      <Link to={href} className={classes}>
+      <A href={href} className={classes}>
         {children}
-      </Link>
+      </A>
     );
   }
 

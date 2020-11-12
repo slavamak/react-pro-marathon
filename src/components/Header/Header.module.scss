@@ -1,4 +1,4 @@
-@import "@/styles/variables";
+@import '@/styles/variables';
 
 .root {
   background-color: $color_third;
@@ -42,7 +42,10 @@
 
       &:hover {
         text-decoration: none;
+      }
 
+      &:hover,
+      &.active {
         &::after {
           display: block;
         }
