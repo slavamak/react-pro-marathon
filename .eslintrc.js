@@ -28,6 +28,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/newline-after-import': 'off',
     'no-console': 'error',
+    'no-shadow': 'off',
     'react/button-has-type': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
     'react/prop-types': 'off',

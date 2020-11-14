@@ -1,17 +1,12 @@
 import React from 'react';
+
 import { Heading } from '@/components/Heading';
+import { IPokemon } from '@/interfaces';
 
 import styles from './PokemonCard.module.scss';
 
 interface IPokemonCardProps {
-  pokemon: {
-    name: string;
-    img: string;
-    stats: {
-      [n: string]: number;
-    };
-    types: string[];
-  };
+  pokemon: IPokemon;
 }
 
 export const PokemonCard: React.FC<IPokemonCardProps> = ({ pokemon }) => {
