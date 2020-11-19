@@ -1,48 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Container } from '@/components/Container';
 import { PokemonCard } from '@/components/PokemonCard';
 import { Heading } from '@/components/Heading';
-import { IPagesProps, IPokemon } from '@/interfaces';
+import { useData } from '@/hook/getData';
+import { IPagesProps } from '@/interfaces';
 
 import styles from './Pokedex.module.scss';
 
-interface IData {
-  total: number;
-  pokemons: Array<IPokemon>;
-}
-
-const usePokemons = () => {
-  const [data, setData] = useState<IData>({ total: 0, pokemons: [] });
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      try {
-        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons');
-        const result = await response.json();
-
-        setData(result);
-      } catch (error) {
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    getPokemons();
-  }, []);
-
-  return {
-    data,
-    isLoading,
-    isError,
-  };
-};
-
 export const PokedexPage: React.FC<IPagesProps> = () => {
-  const { data, isLoading, isError } = usePokemons();
+  const [searchValue, setSearchValue] = useState('');
+  const [query, setQuery] = useState({});
+
+  const { data, isLoading, isError } = useData('getPokemons', query, [searchValue]);
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+    setQuery((state) => ({
+      ...state,
+      name: event.target.value,
+    }));
+  };
 
   if (isLoading) {
     return <Container>Loading...</Container>;
@@ -58,6 +36,7 @@ export const PokedexPage: React.FC<IPagesProps> = () => {
         <Heading className={styles.heading}>
           {data.total} <strong>Pokemons</strong> for you to choose your favorite
         </Heading>
+        <input type="text" value={searchValue} onChange={handleSearchChange} />
         <div className={styles.grid}>
           {data.pokemons.map((pokemon) => {
             return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
