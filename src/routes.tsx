@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import { HomePage } from '@/pages/Home';
 import { PokedexPage } from '@/pages/Pokedex';
 import { EmptyPage } from '@/pages/Empty';
+import { PokemonPage } from '@/pages/Pokemon';
+import { IPokemonProps } from './interfaces';
 
 interface INav {
   title: string;
   url: NavLinkEnum;
-  component: (title: string) => () => JSX.Element;
+  component: (props: PropsWithChildren<any>) => JSX.Element;
 }
 
 interface IAcc {
-  [n: string]: () => JSX.Element;
+  [n: string]: (props: PropsWithChildren<any>) => JSX.Element;
 }
 
 export enum NavLinkEnum {
@@ -20,28 +22,29 @@ export enum NavLinkEnum {
   LEGENDARIES = '/legendaries',
   DOCUMENTATION = '/docs',
   OURS_TEAM = '/team',
+  POKEMON = '/pokedex/:id',
 }
 
 export const HEADER_NAV: INav[] = [
   {
     title: 'Home',
     url: NavLinkEnum.HOME,
-    component: (title) => () => <HomePage title={title} />,
+    component: (title) => <HomePage title={title} />,
   },
   {
     title: 'Pokédex',
     url: NavLinkEnum.POKEDEX,
-    component: (title) => () => <PokedexPage title={title} />,
+    component: (title) => <PokedexPage title={title} />,
   },
   {
     title: 'Legendaries',
     url: NavLinkEnum.LEGENDARIES,
-    component: (title) => () => <EmptyPage title={title} />,
+    component: (title) => <EmptyPage title={title} />,
   },
   {
     title: 'Documentation',
     url: NavLinkEnum.DOCUMENTATION,
-    component: (title) => () => <EmptyPage title={title} />,
+    component: (title) => <EmptyPage title={title} />,
   },
 ];
 
@@ -49,21 +52,19 @@ export const FOOTER_NAV: INav[] = [
   {
     title: 'Ours Team',
     url: NavLinkEnum.OURS_TEAM,
-    component: (title) => () => <EmptyPage title={title} />,
+    component: (title) => <EmptyPage title={title} />,
   },
 ];
 
-const transformArray = (array: INav[]) => {
-  return array.reduce((acc: IAcc, item: INav) => {
-    acc[item.url] = item.component(item.title);
-    return acc;
-  }, {});
-};
+const SECOND_ROUTES: INav[] = [
+  {
+    title: 'Pokemon',
+    url: NavLinkEnum.POKEMON,
+    component: ({ title, id }: IPokemonProps) => <PokemonPage title={title} id={id} />,
+  },
+];
 
-const headerNav = transformArray(HEADER_NAV);
-const footerNav = transformArray(FOOTER_NAV);
-
-export const routes = {
-  ...headerNav,
-  ...footerNav,
-};
+export const routes = [...HEADER_NAV, ...FOOTER_NAV, ...SECOND_ROUTES].reduce((acc: IAcc, item: INav) => {
+  acc[item.url] = item.component;
+  return acc;
+}, {});

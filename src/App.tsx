@@ -8,6 +8,7 @@ import { NotFoundPage } from '@/pages/NotFound';
 
 export const App = () => {
   const routeResult = useRoutes(routes);
+
   const pageTitle = routeResult ? routeResult.props.title || document.title : document.title;
   useTitle(pageTitle);
 

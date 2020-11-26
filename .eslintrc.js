@@ -32,6 +32,7 @@ module.exports = {
     'react/button-has-type': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
     'react/prop-types': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     'import/resolver': {

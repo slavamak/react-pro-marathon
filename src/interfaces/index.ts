@@ -11,3 +11,12 @@ export interface IPokemon {
   };
   types: string[];
 }
+
+export interface IPokemons {
+  total: number;
+  pokemons: IPokemon[];
+}
+
+export interface IPokemonProps extends IPagesProps {
+  id: string | number;
+}
