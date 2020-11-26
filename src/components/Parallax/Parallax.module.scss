@@ -1,107 +1,71 @@
 .root {
-  max-width: 800px;
-  width: 100%;
-  height: 290px;
   position: relative;
+  z-index: 2;
+  width: 100%;
 }
 
-.smallPokeBall {
-  position: absolute;
-  top: 10%;
-  left: 0;
-
+.fullBanner {
   img {
-    width: 40%;
+    width: 120%;
   }
 }
 
-.cloud {
-  position: absolute;
-  left: 0;
-  bottom: 32%;
-
-  img {
-    width: 40%;
-  }
-}
-
-.cloudBig {
-  position: absolute;
-  left: 35%;
-  top: 5%;
-
-  img {
-    width: 64%;
-  }
-}
-
-.pokeBall {
-  position: absolute;
-  top: 0;
-  right: -8%;
-  text-align: right;
-
-  img {
-    width: 48%;
-  }
-}
-
+.smallPokeBall,
+.cloud,
+.cloudBig,
+.pokeBall,
 .pikachu {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  img {
-    width: 80%;
-  }
+  display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .root {
+    max-width: 800px;
+    width: 100%;
     height: 680px;
+  }
+
+  .smallPokeBall,
+  .cloud,
+  .cloudBig,
+  .pokeBall,
+  .pikachu {
+    display: block;
+  }
+
+  .fullBanner {
+    display: none;
   }
 
   .smallPokeBall {
     position: absolute;
     top: 0;
     left: 10%;
-
-    img {
-      width: auto;
-    }
   }
 
   .cloud {
     position: absolute;
+    left: 0;
     bottom: 35%;
-
-    img {
-      width: auto;
-    }
   }
 
   .cloudBig {
     position: absolute;
+    top: 5%;
     left: 50%;
-
-    img {
-      width: auto;
-    }
   }
 
   .pokeBall {
     position: absolute;
     right: -30%;
-
-    img {
-      width: auto;
-    }
+    top: 0;
+    text-align: right;
   }
 
   .pikachu {
     position: absolute;
     top: 0;
-    bottom: auto;
+    left: 0;
 
     img {
       width: 100%;

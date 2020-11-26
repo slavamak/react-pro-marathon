@@ -3,8 +3,8 @@
 .root {
   min-height: calc(100vh);
   background-color: $color_danger;
-  padding-top: $section_padding_mobile;
-  padding-bottom: $section_padding_mobile;
+  padding-top: $section_padding_top_mobile;
+  padding-bottom: $section_padding_bottom_mobile;
 
   display: flex;
   flex-direction: column;
@@ -46,6 +46,11 @@
 }
 
 @media screen and (min-width: 768px) {
+  .root {
+    padding-top: $section_padding_top_desktop;
+    padding-bottom: $section_padding_bottom_desktop;
+  }
+
   .sub-title {
     font-size: 2.5rem;
     margin-top: 60px;

@@ -2,6 +2,13 @@
 
 .root {
   min-height: calc(100vh - #{$header_height_mobile});
-  padding-top: $section_padding_mobile;
-  padding-bottom: $section_padding_mobile;
+  padding-top: $section_padding_top_mobile;
+  padding-bottom: $section_padding_bottom_mobile;
+}
+
+@media screen and (min-width: 768px) {
+  .root {
+    padding-top: $section_padding_top_desktop;
+    padding-bottom: $section_padding_bottom_desktop;
+  }
 }

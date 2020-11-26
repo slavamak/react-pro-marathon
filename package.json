@@ -23,6 +23,7 @@
   "homepage": "https://github.com/slavamak/react-pro-marathon#readme",
   "dependencies": {
     "classnames": "^2.2.6",
+    "gsap": "^3.5.1",
     "hookrouter": "^1.2.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

@@ -19,5 +19,7 @@ $header_height_desktop: 94px;
 $footer_height_mobile: $header_height_mobile;
 $footer_height_desktop: $header_height_desktop;
 
-$section_padding_mobile: 30px;
-$section_padding_desktop: 40px;
+$section_padding_top_mobile: 30px;
+$section_padding_top_desktop: 40px;
+$section_padding_bottom_mobile: 30px + $footer_height_mobile;
+$section_padding_bottom_desktop: 40px + $footer_height_desktop;

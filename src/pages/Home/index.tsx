@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import gsap from 'gsap';
 
 import { Container } from '@/components/Container';
 import { Parallax } from '@/components/Parallax';
@@ -10,6 +11,37 @@ import { IPagesProps } from '@/interfaces';
 import styles from './Home.module.scss';
 
 export const HomePage: React.FC<IPagesProps> = () => {
+  useEffect(() => {
+    gsap.fromTo(
+      `.${styles.content}`,
+      {
+        transform: `translateY(50px)`,
+        opacity: 0,
+      },
+      {
+        transform: `translateY(0)`,
+        opacity: 1,
+        delay: 0.75,
+        duration: 1.25,
+        ease: 'expo',
+      },
+    );
+    gsap.fromTo(
+      `.${styles.button}`,
+      {
+        transform: `translateY(30px)`,
+        opacity: 0,
+      },
+      {
+        transform: `translateY(0)`,
+        opacity: 1,
+        delay: 1,
+        duration: 1,
+        ease: 'expo',
+      },
+    );
+  }, []);
+
   return (
     <section className={styles.root}>
       <Container>

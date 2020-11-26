@@ -1,6 +1,8 @@
 @import '@/styles/variables';
 
 .root {
+  z-index: 1;
+  position: relative;
   background-color: $color_third;
   box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
 }

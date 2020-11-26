@@ -11,24 +11,34 @@
   background-color: $color_white;
   border-radius: 11px;
   box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+  transition: background-color 0.2s ease-in-out;
 
   &:hover {
     text-decoration: none;
+    background-color: darken($color_white, 5%);
   }
 
   &:active {
     box-shadow: inset 0px -6px 0px rgba(0, 0, 0, 0.18);
-    transform: translateY(3px);
+    transform: translateY(3px) !important;
     padding-bottom: 19px;
   }
 }
 
 .yellow {
   background-color: $color_third;
+
+  &:hover {
+    background-color: darken($color_third, 5%);
+  }
 }
 
 .green {
   background-color: $color_succes;
+
+  &:hover {
+    background-color: darken($color_succes, 5%);
+  }
 }
 
 .full {
